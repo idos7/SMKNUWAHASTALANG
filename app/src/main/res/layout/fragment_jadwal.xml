@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/tv_jadwal"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_account"
+        android:padding="@dimen/_7sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:tint="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ahmad Firdausi Zulfa"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_30sdp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selasa"
+                android:textSize="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X Akuntansi 1"
+                android:textSize="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_139sdp"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_30sdp"
+        >
+        <LinearLayout
+            android:scrollbars="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_9sdp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:text="07:00-07:45"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp"/>
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:text="B.INDO"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp"/>
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:text="Sugeng S.Pd"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="07:00-07:45"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="wrap_content"
+                    android:text="B.INDO"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Sugeng S.Pd"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_15sdp"/>
+            </LinearLayout>
+            </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
