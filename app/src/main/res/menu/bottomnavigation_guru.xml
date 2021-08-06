@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item
+        android:id="@+id/Home_Guru"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/Input_Absen"
+        android:title="Input Absen"
+        android:icon="@drawable/ic_kelas"/>
+    <item
+        android:id="@+id/Jadwal_Mengajar"
+        android:title="Jadwal"
+        android:icon="@drawable/ic_jadwals"/>
+</menu>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardBackgroundColor="@color/abuabu"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:id="@+id/cv_JadwalMapelMengajar">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_7sdp">
+
+
+        <TextView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtWaktu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginVertical="0dp"
+            android:text="07:07-07:40"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/tulisan"
+            android:textSize="@dimen/_10sdp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/txtWaktu"
+            android:id="@+id/txtNamaKelas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="Nama Kelas"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/tulisan"
+            android:textSize="@dimen/_10sdp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

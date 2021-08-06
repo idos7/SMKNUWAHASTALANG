@@ -16,10 +16,11 @@ class SharedPrefManager private constructor(private val mCtx: Context){
             return DataLogin(
                     sharedPreferences.getInt("id", -1),
                     sharedPreferences.getString("name", null)!!,
-                    sharedPreferences.getString("email", null)!!
+                    sharedPreferences.getString("email", null)!!,
+                    sharedPreferences.getInt("rule", -1)!!
+
             )
         }
-
 
     fun saveUser(data : DataLogin) {
 
@@ -29,9 +30,24 @@ class SharedPrefManager private constructor(private val mCtx: Context){
         editor.putInt("id", data.id)
         editor.putString("name", data.name)
         editor.putString("email", data.email)
+        editor.putInt("rule", data.rule)
+        editor.apply()
+    }
+    fun saveDataTemp(data : String) {
+
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putString("data", data)
         editor.apply()
 
     }
+
+    val dataTemp: String?
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return sharedPreferences.getString("data",null)
+        }
 
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)

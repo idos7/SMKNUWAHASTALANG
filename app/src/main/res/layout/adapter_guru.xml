@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_3sdp"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:cardBackgroundColor="@color/abuabu"
+    android:id="@+id/cv_DataGuru">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/user"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:id="@+id/ivfoto"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivfoto"
+            android:id="@+id/txtNama"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="Ahmad Firdausi Zulfa"
+            android:fontFamily="@font/tulisan"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivfoto"
+            android:id="@+id/txtJabatan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNama"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="Jabatan           : Guru"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/tulisan"
+            android:textSize="@dimen/_10sdp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/ivfoto"
+            android:id="@+id/txtPendidikan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtJabatan"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="Pendidikan     : S1"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/tulisan"
+            android:textSize="@dimen/_10sdp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

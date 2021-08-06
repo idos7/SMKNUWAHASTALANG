@@ -3,7 +3,7 @@
     <style name="Theme.SMKNUWAHASTALANG" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">#25E118</item>
+        <item name="colorPrimaryVariant">#1CAE81</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

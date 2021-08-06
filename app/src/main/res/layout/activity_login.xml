@@ -4,16 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login1"
     tools:context=".LoginActivity">
 
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:layout_marginBottom="@dimen/_150sdp"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        app:cardCornerRadius="@dimen/_15sdp"-->
-    <!--        android:backgroundTint="#81000000"-->
-    <!--        android:layout_width="@dimen/_250sdp"-->
-    <!--        android:layout_height="@dimen/_130sdp"/>-->
 
     <LinearLayout
         android:gravity="center"
@@ -22,21 +15,27 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_margin="@dimen/_25sdp"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_1sdp"
             android:background="@drawable/logo" />
-
 
         <TextView
             android:textColor="@color/black"
             android:text="SISTEM INFORMASI AKADEMIK"
             android:textStyle="bold"
+            android:fontFamily="@font/tulisan"
             android:textSize="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_25sdp"
+           android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="@dimen/_100sdp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            android:backgroundTint="#5E252525"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content">
 
         <LinearLayout
             android:visibility="visible"
@@ -51,10 +50,20 @@
                 android:layout_height="@dimen/_20sdp"/>
             <EditText
                 android:id="@+id/edtEmail"
-                android:hint="NIS"
-                android:layout_width="@dimen/_180sdp"
+                android:hint="NIS/NIP"
+                android:inputType="number"
+                android:maxLength="18"
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            android:backgroundTint="#5E252525"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_margin="@dimen/_10sdp"
@@ -69,35 +78,43 @@
 
             <EditText
                 android:id="@+id/edtPassword"
-                android:layout_width="@dimen/_180sdp"
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword" />
         </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="login"
-            />
+        <TextView
+            android:id="@+id/edtForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:text="Forgot Password"
+            android:fontFamily="@font/tulisan"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_120sdp"/>
 
-        <!--        <androidx.cardview.widget.CardView-->
-        <!--            android:id="@+id/cvLogin"-->
-        <!--            android:layout_marginTop="@dimen/_30sdp"-->
-        <!--            android:backgroundTint="@color/purple_700"-->
-        <!--            app:cardCornerRadius="@dimen/_12sdp"-->
-        <!--            android:layout_width="@dimen/_180sdp"-->
-        <!--            android:layout_height="@dimen/_30sdp">-->
-        <!--            <TextView-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="LOGIN"-->
-        <!--                android:textStyle="bold"-->
-        <!--                android:textColor="@color/white"-->
-        <!--                android:textSize="@dimen/_13sdp"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"/>-->
-        <!--        </androidx.cardview.widget.CardView>-->
+        <androidx.cardview.widget.CardView
+                    android:id="@+id/btnLogin"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="@dimen/_12sdp"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_35sdp">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:text="LOGIN"
+                        android:fontFamily="@font/tulisan"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 

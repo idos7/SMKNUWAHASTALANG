@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-
-
     <item
-        android:id="@+id/jadwal_menu"
-        android:title="Jadwal"
-        android:icon="@drawable/ic_jadwal"/>
-
-    <item
-        android:id="@+id/absensi_menu"
-        android:title="Absensi"
-        android:icon="@drawable/ic_absensi"/>
-
-    <item
-        android:id="@+id/nilai_menu"
-        android:title="Nilai"
-        android:icon="@drawable/ic_nilai"/>
+        android:id="@+id/home_menu"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/siswa_menu"
         android:title="Siswa"
