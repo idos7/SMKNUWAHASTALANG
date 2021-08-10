@@ -22,9 +22,9 @@
             android:src="@drawable/profil_icon" />
 
         <TextView
-            android:layout_width="@dimen/_80sdp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_100sdp"
+            android:textAlignment="center"
             android:text="Data Siswa"
             android:fontFamily="@font/tulisan"
             android:textColor="@color/white"

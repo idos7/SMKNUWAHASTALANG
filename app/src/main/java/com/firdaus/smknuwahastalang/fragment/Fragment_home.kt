@@ -1,6 +1,7 @@
 package com.firdaus.smknuwahastalang.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +32,7 @@ class Fragment_home : Fragment() {
         val cv_DataGuru: CardView = view.findViewById(R.id.cv_DataGuru)
         val txtNama: TextView = view.findViewById(R.id.txtNama)
         val dataNama : String = SharedPrefManager.getInstance(requireContext()).data.name
-
+        Log.e("guru", SharedPrefManager.getInstance(requireContext()).data.nisnip.toString())
         txtNama.text = dataNama
         cvJadwal.setOnClickListener { buka_jadwal() }
         cvAbsensi.setOnClickListener { buka_absensi() }

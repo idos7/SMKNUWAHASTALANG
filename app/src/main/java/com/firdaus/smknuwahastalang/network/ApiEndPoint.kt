@@ -37,12 +37,12 @@ interface ApiEndPoint {
 
     @GET("profil/{id}")
     fun Profil(
-        @Path("id")id:Int
+        @Path("id")id:String
     ): Call<ResponseProfil>
 
     @GET("profilguru/{id}")
     fun ProfilGuru(
-        @Path("id")id:Int
+        @Path("id")id:String
     ): Call<ResponseProfilGuru>
 
     @GET("profilguru/{id}")
@@ -56,9 +56,10 @@ interface ApiEndPoint {
             @Path("siswa")siswa:Int
     ): Call<ResponseAbsen>
 
-    @GET("cekabsen/{siswa}")
+    @GET("cekabsen/{siswa}/{tanggal}")
     fun cekAbsen(
-            @Path("siswa")siswa:Int
+            @Path("siswa")siswa:String,
+            @Path("tanggal")tanggal:String
     ): Call<ResponseAbsen>
 
     @GET("jadwalhariini/{kelas}/{nama_kelas}")
@@ -69,11 +70,20 @@ interface ApiEndPoint {
 
     @GET("jadwalhariini_guru/{nama}")
     fun ListJadwalGuru(
-            @Path("nama")nama:String,
+        @Path("nama")nama:String,
     ): Call<ResponseListJadwal>
 
-    @GET("listabsen")
+    @GET("listabsen/{nama}")
     fun ListAbsen(
+        @Path("nama")nama:String,
     ): Call<ResponseListDataSiswa>
+
+    @GET("listabsen")
+    fun getAbsen(
+    ): Call<ResponseListDataSiswa>
+
+    @GET("inputabsen")
+    fun getStatusAbsen(
+    ): Call<ResponseStatusAbsen>
 
 }

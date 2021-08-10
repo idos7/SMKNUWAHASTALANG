@@ -36,7 +36,7 @@ class FragmentProfil : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profil, container, false)
         val cv_Logout : CardView = view.findViewById(R.id.cv_Logout)
         cv_Logout.setOnClickListener { logout() }
-        val daataNis : String = SharedPrefManager.getInstance(requireContext()).data.email
+        val daataNis : String = SharedPrefManager.getInstance(requireContext()).data.nisnip
         val nama :TextView = view.findViewById(R.id.txtNama)
         val nis :TextView = view.findViewById(R.id.txtNIS)
         val nisn :TextView = view.findViewById(R.id.txtNISN)
@@ -46,7 +46,7 @@ class FragmentProfil : Fragment() {
         val alamat :TextView = view.findViewById(R.id.txtAlamat)
         val agama :TextView = view.findViewById(R.id.txtAgama)
 
-        ApiService.instance.Profil(daataNis.toInt()).enqueue(object : Callback<ResponseProfil> {
+        ApiService.instance.Profil(daataNis).enqueue(object : Callback<ResponseProfil> {
             override fun onFailure(call: Call<ResponseProfil>, t: Throwable) {
                 Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
                 Log.e("guru", t.toString())
@@ -58,7 +58,7 @@ class FragmentProfil : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val listdata = response.body()!!.data
-                    Log.e("guru", listdata.toString())
+                    Log.e("guru", listdata.nama)
                         nama.text = ":${ listdata.nama }"
                         nis.text = ":${ listdata.nis }"
                         nisn.text = ":${ listdata.nisn }"

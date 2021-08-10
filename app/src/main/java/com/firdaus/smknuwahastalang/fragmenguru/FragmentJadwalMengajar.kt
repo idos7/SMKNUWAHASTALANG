@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.firdaus.smknuwahastalang.R
 import com.firdaus.smknuwahastalang.data.ResponseListJadwal
@@ -31,10 +34,22 @@ class FragmentJadwalMengajar : Fragment() {
         var listJadwal = view.findViewById<RecyclerView>(R.id.listJadwal)
         val txthari = view.findViewById<TextView>(R.id.txtHari)
         val txtkelas = view.findViewById<TextView>(R.id.txtKelas)
+        val cvJadwalSeluruh: CardView = view.findViewById(R.id.cvJadwalSeluruh)
         adapterJadwalMengajar = AdapterJadwalMengajar(arrayListOf())
         listJadwal.adapter = adapterJadwalMengajar
 
+        cvJadwalSeluruh.setOnClickListener { buka_JadwalSeluruh() }
+
         return view
+    }
+
+    private fun buka_JadwalSeluruh() {
+        val fragment: Fragment = RiwayatJadwalGuruFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     override fun onStart() {

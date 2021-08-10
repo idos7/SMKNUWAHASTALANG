@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,12 +18,12 @@
         <ImageView
             android:layout_width="345dp"
             android:layout_height="@dimen/_80sdp"
-            android:src="@drawable/profil_icon" />
+            android:src="@drawable/jadwal_icon" />
 
         <TextView
-            android:layout_width="172dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_80sdp"
+            android:textAlignment="center"
             android:text="Jadwal Mengajar"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
@@ -30,43 +31,41 @@
             android:fontFamily="@font/tulisan"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            >
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvHhari"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/abuabu"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardBackgroundColor="@color/abuabu"
-                android:id="@+id/cvHhari"
-                >
+                app:layout_constraintTop_toTopOf="parent">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/txtHari"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Senin"
-                        android:id="@+id/txtHari"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
                         android:fontFamily="@font/tulisan"
-                        android:textSize="@dimen/_15sdp" />
+                        android:text="Senin"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <!--    jadwal-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cvHhari"
@@ -79,12 +78,36 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     tools:listitem="@layout/adapter_jadwal"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_200sdp"
                     android:id="@+id/listJadwal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:padding="@dimen/_16sdp"/>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvJadwalSeluruh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cvJadwal"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:backgroundTint="#1CAE81">
+
+                <TextView
+                    android:id="@+id/txtJadwalKeseluruhan"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lihat Semua Jadwal"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

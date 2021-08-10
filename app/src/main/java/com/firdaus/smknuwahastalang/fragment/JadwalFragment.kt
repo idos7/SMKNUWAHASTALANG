@@ -7,13 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.firdaus.smknuwahastalang.R
 import com.firdaus.smknuwahastalang.data.ResponseListDataGuru
 import com.firdaus.smknuwahastalang.data.ResponseListDataSiswa
 import com.firdaus.smknuwahastalang.data.ResponseListJadwal
 import com.firdaus.smknuwahastalang.data.ResponseProfil
+import com.firdaus.smknuwahastalang.fragmenguru.RiwayatJadwalGuruFragment
 import com.firdaus.smknuwahastalang.network.ApiService
 import com.firdaus.smknuwahastalang.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.fragment_jadwal.*
@@ -32,19 +36,32 @@ class JadwalFragment : Fragment() {
         var listJadwal = view.findViewById<RecyclerView>(R.id.listJadwal)
         val txthari = view.findViewById<TextView>(R.id.txtHari)
         val txtkelas = view.findViewById<TextView>(R.id.txtKelas)
+        val cvJadwalSeluruh = view.findViewById<CardView>(R.id.cvJadwalSeluruh)
         adapteJadwal = AdapterJadwal(arrayListOf())
         listJadwal.adapter =adapteJadwal
 
+        cvJadwalSeluruh.setOnClickListener { buka_JadwalSeluruh() }
+
         return view
     }
+
+    private fun buka_JadwalSeluruh() {
+        val fragment: Fragment = RiwayatJadwalSiswaFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
     override fun onStart(){
         super.onStart()
         getJadwal()
     }
 
     private fun getJadwal(){
-        val daataNis : String = SharedPrefManager.getInstance(requireContext()).data.email
-        ApiService.instance.Profil(daataNis.toInt()).enqueue(object : Callback<ResponseProfil> {
+        val daataNis : String = SharedPrefManager.getInstance(requireContext()).data.nisnip
+        ApiService.instance.Profil(daataNis).enqueue(object : Callback<ResponseProfil> {
             override fun onFailure(call: Call<ResponseProfil>, t: Throwable) {
                 Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
                 Log.e("guru", t.toString())

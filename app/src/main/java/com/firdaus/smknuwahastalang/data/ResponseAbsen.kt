@@ -6,5 +6,7 @@ class ResponseAbsen (
     @SerializedName("pesan") val message : String,
     @SerializedName("status") val status : Boolean,
     @SerializedName("keterangan") val keterangan : String,
-    @SerializedName("dataLogin") val data : DataLogin
+    @SerializedName("dataLogin") val data : DataLogin,
+    @SerializedName("data") val data2 : String
+
 )

@@ -39,19 +39,19 @@ class AdapterInputAbsen(
 
     override fun onBindViewHolder(holder: AdapterInputAbsen.ViewHolder, position: Int) {
         val data = siswas[position]
-        val nis = data.nis
+        val id = data.id
         ijin=  holder.cvIjin
         alfa= holder.cvAlfa
         hadir = holder.cvHadir
 //        cek(nis)
         holder.cvHadir.setOnClickListener {
-            hadir(holder.cvHadir, nis)
+            hadir(holder.cvHadir, id)
         }
         holder.cvIjin.setOnClickListener {
-            ijin(holder.cvIjin, nis)
+            ijin(holder.cvIjin, id)
         }
         holder.cvAlfa.setOnClickListener {
-            alfa(holder.cvAlfa, nis)
+            alfa(holder.cvAlfa, id)
         }
         holder.textNama.text =  data.nama
     }

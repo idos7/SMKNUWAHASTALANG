@@ -17,6 +17,7 @@ class SharedPrefManager private constructor(private val mCtx: Context){
                     sharedPreferences.getInt("id", -1),
                     sharedPreferences.getString("name", null)!!,
                     sharedPreferences.getString("email", null)!!,
+                    sharedPreferences.getString("nisnip", null)!!,
                     sharedPreferences.getInt("rule", -1)!!
 
             )
@@ -31,6 +32,7 @@ class SharedPrefManager private constructor(private val mCtx: Context){
         editor.putString("name", data.name)
         editor.putString("email", data.email)
         editor.putInt("rule", data.rule)
+        editor.putString("nisnip", data.nisnip)
         editor.apply()
     }
     fun saveDataTemp(data : String) {

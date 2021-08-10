@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragmenguru.RiwayatJadwalGuruFragment"
+    android:background="@drawable/bg_profil">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="JADWAL PELAJARAN"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="@font/tulisan"
+            >
+        </TextView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSenen"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_100sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtSenin"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SENIN"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSelasa"
+            app:layout_constraintTop_toBottomOf="@+id/cvSenen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtSelasa"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELASA"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cvRabu"
+            app:layout_constraintTop_toBottomOf="@+id/cvSelasa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtRabu"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RABU"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cvKamis"
+            app:layout_constraintTop_toBottomOf="@+id/cvRabu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtKamis"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KAMIS"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cvJumat"
+            app:layout_constraintTop_toBottomOf="@+id/cvKamis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtJumat"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JUMAT"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cvSabtu"
+            app:layout_constraintTop_toBottomOf="@+id/cvJumat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            app:contentPadding="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/txtSabtu"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SABTU"
+                android:textColor="#1CAE81"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/tulisan"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

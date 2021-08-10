@@ -1,4 +1,4 @@
-package com.firdaus.smknuwahastalang.fragmenguru
+package com.firdaus.smknuwahastalang.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FragmentJadwalMengajarKeseluruhan.newInstance] factory method to
+ * Use the [RiwayatJadwalSiswaFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentJadwalMengajarKeseluruhan : Fragment() {
+class RiwayatJadwalSiswaFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +35,7 @@ class FragmentJadwalMengajarKeseluruhan : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_jadwal_mengajar_keseluruhan, container, false)
+        return inflater.inflate(R.layout.fragment_riwayat_jadwal_siswa, container, false)
     }
 
     companion object {
@@ -45,12 +45,12 @@ class FragmentJadwalMengajarKeseluruhan : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentJadwalMengajarKeseluruhan.
+         * @return A new instance of fragment RiwayatJadwalSiswaFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            FragmentJadwalMengajarKeseluruhan().apply {
+            RiwayatJadwalSiswaFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

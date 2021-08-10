@@ -29,15 +29,15 @@ class FragmentProfilGuru : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profil_guru, container, false)
         val cv_Logout : CardView = view.findViewById(R.id.cv_Logout)
         cv_Logout.setOnClickListener { logout() }
-        val dataNip : String = SharedPrefManager.getInstance(requireContext()).data.email
+        val dataNip : String = SharedPrefManager.getInstance(requireContext()).data.nisnip.toString()
         val namaguru : TextView = view.findViewById(R.id.txtNamaGuru)
         val nip : TextView = view.findViewById(R.id.txtNIP)
         val jabatan : TextView = view.findViewById(R.id.txtJabatan)
         val pendidikan : TextView = view.findViewById(R.id.txtPendidikan)
         val alamat : TextView = view.findViewById(R.id.txtAlamat)
         val agama : TextView = view.findViewById(R.id.txtAgama)
-
-        ApiService.instance.ProfilGuru(dataNip.toInt()).enqueue(object : Callback<ResponseProfilGuru> {
+        Log.e("guru", SharedPrefManager.getInstance(requireContext()).data.nisnip.toString())
+        ApiService.instance.ProfilGuru(dataNip).enqueue(object : Callback<ResponseProfilGuru> {
             override fun onFailure(call: Call<ResponseProfilGuru>, t: Throwable) {
                 Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
                 Log.e("guru", t.toString())
@@ -49,7 +49,7 @@ class FragmentProfilGuru : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val listdata = response.body()!!.data
-                    Log.e("guru", listdata.toString())
+                    Log.e("guru", listdata.nama.toString())
                     namaguru.text = ":${ listdata.nama }"
                     nip.text = ":${ listdata.nip }"
                     jabatan.text = ":${ listdata.jabatan }"

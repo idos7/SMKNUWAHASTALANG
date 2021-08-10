@@ -13,6 +13,7 @@ import com.firdaus.smknuwahastalang.R
 import com.firdaus.smknuwahastalang.data.ResponseListDataSiswa
 import com.firdaus.smknuwahastalang.fragment.AdapterSiswa
 import com.firdaus.smknuwahastalang.network.ApiService
+import com.firdaus.smknuwahastalang.storage.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +38,7 @@ class FragmentInputAbsen : Fragment() {
         getDaftarSiswa()
     }
     private fun getDaftarSiswa(){
-        ApiService.instance.ListAbsen().enqueue(object : Callback<ResponseListDataSiswa> {
+        ApiService.instance.ListAbsen(SharedPrefManager.getInstance(requireContext()).data.name).enqueue(object : Callback<ResponseListDataSiswa> {
             override fun onFailure(call: Call<ResponseListDataSiswa>, t: Throwable) {
                 Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
                 Log.e("siswa", t.toString())

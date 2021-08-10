@@ -3,6 +3,7 @@ package com.firdaus.smknuwahastalang.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.firdaus.smknuwahastalang.R
@@ -39,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 edtPassword.requestFocus()
                 return@setOnClickListener
             }
-
+            Log.e("guru", email)
             ApiService.instance.Login(email, password).enqueue(object : Callback<ResponseLogin> {
                 override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -54,6 +55,8 @@ class LoginActivity : AppCompatActivity() {
                         if (response.body()?.data!!.rule == 3){
                             SharedPrefManager.getInstance(applicationContext)
                                     .saveUser(response.body()?.data!!)
+
+//                            Log.e("guru", SharedPrefManager.getInstance(applicationContext).data.nisnip.toString())
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

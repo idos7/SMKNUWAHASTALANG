@@ -1,6 +1,7 @@
 package com.firdaus.smknuwahastalang.fragmenguru
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +36,6 @@ class FragmentHomeGuru : Fragment() {
         im_ProfilGuru.setOnClickListener { buka_ProfilGuru() }
         cvInputAbsen.setOnClickListener { buka_InputAbsen() }
         cvJadwalMengajar.setOnClickListener { buka_JadwalMengajar() }
-
         return view
     }
 
