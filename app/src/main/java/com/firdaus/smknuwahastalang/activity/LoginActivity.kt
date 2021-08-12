@@ -11,6 +11,7 @@ import com.firdaus.smknuwahastalang.data.ResponseLogin
 import com.firdaus.smknuwahastalang.network.ApiService
 import com.firdaus.smknuwahastalang.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_verifikasi_password.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,6 +39,11 @@ class LoginActivity : AppCompatActivity() {
             if(password.isEmpty()){
                 edtPassword.error = "Password required"
                 edtPassword.requestFocus()
+                return@setOnClickListener
+            }
+            if(email.length <= 9 ){
+                edtEmail.error = "Nip/Nis Terlalu Pendek"
+                edtEmail.requestFocus()
                 return@setOnClickListener
             }
             Log.e("guru", email)

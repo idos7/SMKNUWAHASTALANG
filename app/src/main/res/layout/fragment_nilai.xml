@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="0dp"
+        android:layout_marginBottom="@dimen/_6sdp"
         android:orientation="vertical"
         android:padding="@dimen/_5sdp"
         android:paddingHorizontal="@dimen/_20sdp">
@@ -54,12 +55,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="#1CAE81"
+                    android:fontFamily="@font/tulisan"
                     android:inputType="none"
                     android:paddingVertical="@dimen/_1sdp"
                     android:text="Semester"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/tulisan"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -113,39 +114,41 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_Nilai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             app:cardBackgroundColor="#1CAE81"
-            app:cardCornerRadius="@dimen/_12sdp"
-            android:id="@+id/cv_Nilai">
+            app:cardCornerRadius="@dimen/_12sdp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_7sdp">
+
                 <TextView
+                    android:id="@+id/txtMapel"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtMapel"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginVertical="0dp"
-                    android:textAlignment="center"
-                    android:text="Bahasa Indonesia"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
                     android:fontFamily="@font/tulisan"
+                    android:text="Mata Pelajaran"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
-                    />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/txtTugas"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1sdp"
                     android:layout_marginLeft="@dimen/_3sdp"
-                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/_1sdp"
                     android:fontFamily="@font/tulisan"
                     android:text="Tugas"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
@@ -156,39 +159,41 @@
                     android:id="@+id/txtUTS"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1sdp"
                     android:layout_marginLeft="@dimen/_3sdp"
-                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/_1sdp"
                     android:fontFamily="@font/tulisan"
                     android:text="UTS"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/txtTugas"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/txtUAS"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1sdp"
                     android:layout_marginLeft="@dimen/_3sdp"
-                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/_1sdp"
                     android:fontFamily="@font/tulisan"
                     android:text="UAS"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/txtUTS"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/txtnNA"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1sdp"
                     android:layout_marginLeft="@dimen/_3sdp"
-                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/_1sdp"
                     android:fontFamily="@font/tulisan"
                     android:text="Nilai Akhir"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
@@ -198,12 +203,11 @@
         </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ListDataNilai"
             android:layout_width="match_parent"
-            tools:listitem="@layout/adapter_nilai"
-            android:layout_height="@dimen/_300sdp"
-            android:id="@+id/cvNilai"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            tools:listitem="@layout/adapter_nilai" />
 
     </LinearLayout>
 </RelativeLayout>

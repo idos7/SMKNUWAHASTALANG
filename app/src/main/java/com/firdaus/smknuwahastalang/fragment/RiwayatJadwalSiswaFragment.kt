@@ -1,60 +1,116 @@
 package com.firdaus.smknuwahastalang.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.RecyclerView
 import com.firdaus.smknuwahastalang.R
+import com.firdaus.smknuwahastalang.data.ResponseListJadwal
+import com.firdaus.smknuwahastalang.data.ResponseProfil
+import com.firdaus.smknuwahastalang.network.ApiService
+import com.firdaus.smknuwahastalang.storage.SharedPrefManager
+import kotlinx.android.synthetic.main.fragment_jadwal.*
+import kotlinx.android.synthetic.main.fragment_riwayat_jadwal_siswa.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RiwayatJadwalSiswaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RiwayatJadwalSiswaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_riwayat_jadwal_siswa, container, false)
+        val view = inflater.inflate(R.layout.fragment_riwayat_jadwal_siswa, container, false)
+        val cvSenen = view.findViewById<CardView>(R.id.cvSenen)
+        val cvSelasa = view.findViewById<CardView>(R.id.cvSelasa)
+        val cvRabu = view.findViewById<CardView>(R.id.cvRabu)
+        val cvKamis = view.findViewById<CardView>(R.id.cvKamis)
+        val cvJumat = view.findViewById<CardView>(R.id.cvJumat)
+        val cvSabtu= view.findViewById<CardView>(R.id.cvSabtu)
+
+        cvSenen.setOnClickListener { Senin() }
+        cvSelasa.setOnClickListener { Selasa() }
+        cvRabu.setOnClickListener { Rabu() }
+        cvKamis.setOnClickListener { Kamis() }
+        cvJumat.setOnClickListener { Jumat() }
+        cvSabtu.setOnClickListener { Sabtu() }
+
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RiwayatJadwalSiswaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RiwayatJadwalSiswaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun Senin() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(1,"Senin")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
+
+    private fun Selasa() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(2,"Selasa")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    private fun Rabu() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(3,"Rabu")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+    private fun Kamis() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(4,"Kamis")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+    private fun Jumat() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(5,"Jumat")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+    private fun Sabtu() {
+        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(6,"Sabtu")
+        val fragment: Fragment = JadwalSeluruhFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
 }
+
+
+

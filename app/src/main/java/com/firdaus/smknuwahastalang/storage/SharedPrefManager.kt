@@ -2,6 +2,8 @@ package com.firdaus.smknuwahastalang.storage
 
 import android.content.Context
 import com.firdaus.smknuwahastalang.data.DataLogin
+import com.firdaus.smknuwahastalang.data.DataPilihhari
+import java.nio.channels.Pipe
 
 class SharedPrefManager private constructor(private val mCtx: Context){
     val isLoggedIn: Boolean
@@ -44,13 +46,31 @@ class SharedPrefManager private constructor(private val mCtx: Context){
         editor.apply()
 
     }
+    fun saveDatapilihjadwal(hari :Int, nama_hari: String) {
+
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putString("nama_hari", nama_hari)
+        editor.putInt("hari", hari)
+        editor.apply()
+
+    }
 
     val dataTemp: String?
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return sharedPreferences.getString("data",null)
         }
+    val datapilihjadwal: DataPilihhari
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return DataPilihhari(
+                sharedPreferences.getInt("hari", -1),
+                sharedPreferences.getString("nama_hari", null)!!
 
+            )
+        }
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

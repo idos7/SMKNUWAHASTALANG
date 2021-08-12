@@ -86,4 +86,25 @@ interface ApiEndPoint {
     fun getStatusAbsen(
     ): Call<ResponseStatusAbsen>
 
+    @GET("jadwalsiswa/{hari}/{nama_hari}/{kelas}/{nama_kelas}")
+    fun jadwalSiswa(
+        @Path("kelas")kelas:String,
+        @Path("nama_kelas")nama_kelas:String,
+        @Path("hari")hari: Int,
+        @Path("nama_hari")nama_hari: String
+    ): Call<ResponseListJadwal>
+
+    @GET("jadwalguru/{hari}/{nama_hari}/{nama}")
+    fun jadwalGuru(
+        @Path("nama")nama: String,
+        @Path("hari")hari: Int,
+        @Path("nama_hari")nama_hari: String
+    ): Call<ResponseListJadwal>
+
+    @GET("getnilai/{nis}/{kelas}/{semester}")
+    fun dataNilai(
+        @Path("nis")nis: String,
+        @Path("kelas")kelas: String,
+        @Path("semester")semester: String
+    ): Call<ResponseListDataNilai>
 }
