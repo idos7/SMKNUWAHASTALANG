@@ -24,6 +24,20 @@ class SharedPrefManager private constructor(private val mCtx: Context){
 
             )
         }
+    val datapilihjadwal: DataPilihhari
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return DataPilihhari(
+                sharedPreferences.getInt("hari", -1),
+                sharedPreferences.getString("nama_hari", null)!!
+
+            )
+        }
+    val dataTemp: String?
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return sharedPreferences.getString("data",null)
+        }
 
     fun saveUser(data : DataLogin) {
 
@@ -57,20 +71,6 @@ class SharedPrefManager private constructor(private val mCtx: Context){
 
     }
 
-    val dataTemp: String?
-        get() {
-            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getString("data",null)
-        }
-    val datapilihjadwal: DataPilihhari
-        get() {
-            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return DataPilihhari(
-                sharedPreferences.getInt("hari", -1),
-                sharedPreferences.getString("nama_hari", null)!!
-
-            )
-        }
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

@@ -1,58 +1,67 @@
 package com.firdaus.smknuwahastalang.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.firdaus.smknuwahastalang.R
+import com.firdaus.smknuwahastalang.data.ResponseProfil
+import com.firdaus.smknuwahastalang.network.ApiService
+import com.firdaus.smknuwahastalang.storage.SharedPrefManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentDetailSiswa.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentDetailSiswa : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_siswa, container, false)
+        val view = inflater.inflate(R.layout.fragment_detail_siswa, container, false)
+        val daataNis : String = SharedPrefManager.getInstance(requireContext()).dataTemp.toString()
+        val nama : TextView = view.findViewById(R.id.txtNama)
+        val kelas : TextView = view.findViewById(R.id.txtKelas)
+        val ttl : TextView = view.findViewById(R.id.txtTTL)
+        val jk : TextView = view.findViewById(R.id.txtJk)
+        val alamat : TextView = view.findViewById(R.id.txtAlamat)
+        val agama : TextView = view.findViewById(R.id.txtAgama)
+
+        ApiService.instance.Profil(daataNis).enqueue(object : Callback<ResponseProfil> {
+            override fun onFailure(call: Call<ResponseProfil>, t: Throwable) {
+                Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
+                Log.e("guru", t.toString())
+            }
+
+            override fun onResponse(
+                    call: Call<ResponseProfil>,
+                    response: Response<ResponseProfil>
+            ) {
+                if (response.isSuccessful) {
+                    val listdata = response.body()!!.data
+                    Log.e("guru", listdata.nama)
+                    nama.text = ":${ listdata.nama }"
+                    kelas.text = ":${listdata.kelas} ${listdata.jurusan}"
+                    ttl.text = ":${ listdata.tempat_lahir } ,${ listdata.tanggal_lahir }"
+                    jk.text = ":${ listdata.gender }"
+                    alamat.text = ":${ listdata.alamat }"
+                    agama.text = ":${ listdata.agama }"
+                }
+
+            }
+        })
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentDetailSiswa.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                FragmentDetailSiswa().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
+
 }

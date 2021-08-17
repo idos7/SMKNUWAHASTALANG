@@ -18,15 +18,19 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FragmentDetailGuru : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_detail_guru, container, false)
-//        val cv_Logout : CardView = view.findViewById(R.id.cv_Logout)
-//        cv_Logout.setOnClickListener { logout() }
-        val dataNip : String = SharedPrefManager.getInstance(requireContext()).data.email
+        val dataNip : String = SharedPrefManager.getInstance(requireContext()).dataTemp.toString()
         val namaguru : TextView = view.findViewById(R.id.txtNamaGuru)
         val nip : TextView = view.findViewById(R.id.txtNIP)
         val jabatan : TextView = view.findViewById(R.id.txtJabatan)
@@ -34,7 +38,7 @@ class FragmentDetailGuru : Fragment() {
         val alamat : TextView = view.findViewById(R.id.txtAlamat)
         val agama : TextView = view.findViewById(R.id.txtAgama)
 
-        ApiService.instance.DetailGuru(dataNip.toInt()).enqueue(object :
+        ApiService.instance.DetailGuru(dataNip).enqueue(object :
             Callback<ResponseProfilGuru> {
             override fun onFailure(call: Call<ResponseProfilGuru>, t: Throwable) {
                 Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()

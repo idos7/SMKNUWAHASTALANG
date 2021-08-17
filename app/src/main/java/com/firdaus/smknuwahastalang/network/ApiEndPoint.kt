@@ -47,7 +47,7 @@ interface ApiEndPoint {
 
     @GET("profilguru/{id}")
     fun DetailGuru(
-        @Path("id")id:Int
+        @Path("id")id:String
     ): Call<ResponseProfilGuru>
 
     @GET("inputabsen/{keterangan}/{siswa}")
