@@ -21,6 +21,8 @@ import retrofit2.Response
 class FragmentInputAbsen : Fragment() {
     private lateinit var adapterInputAbsen: AdapterInputAbsen
     private lateinit var txtTanggal : TextView
+    private lateinit var txtNamaKelas : TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +31,8 @@ class FragmentInputAbsen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_input_absen, container, false)
         var listsiswa = view.findViewById<RecyclerView>(R.id.ListDataSiswa)
         txtTanggal = view.findViewById(R.id.txtTanggal)
+        txtNamaKelas = view.findViewById(R.id.txtNamaKelas)
+
         adapterInputAbsen = AdapterInputAbsen(arrayListOf())
         listsiswa.adapter =adapterInputAbsen
         return view
@@ -46,7 +50,9 @@ class FragmentInputAbsen : Fragment() {
             override fun onResponse(call: Call<ResponseListDataSiswa>, response: Response<ResponseListDataSiswa>) {
                 if (response.isSuccessful) {
                     val listdata = response.body()!!.data
-                    txtTanggal.text = response.body()!!.tanggal.toString()
+                    txtTanggal.text = response.body()!!.tanggal
+                    txtNamaKelas.text = response.body()!!.kelas
+//                    Log.e("siswa", response.body()!!.kelas)
                     adapterInputAbsen.setData(listdata)
                 }
             }

@@ -30,11 +30,11 @@ class FragmentJadwalMengajarSeluruh : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_riwayat_jadwal_guru, container, false)
+        val view = inflater.inflate(R.layout.fragment_jadwal_mengajar_seluruh, container, false)
         var listJadwal = view.findViewById<RecyclerView>(R.id.listJadwal)
         val txthari = view.findViewById<TextView>(R.id.txtHari)
         val txtkelas = view.findViewById<TextView>(R.id.txtKelas)
-        val cvJadwalSeluruh: CardView = view.findViewById(R.id.cvJadwalSeluruh)
+//        val cvJadwalSeluruh: CardView = view.findViewById(R.id.cvJadwalSeluruh)
         adapterJadwalMengajar = AdapterJadwalMengajar(arrayListOf())
         listJadwal.adapter = adapterJadwalMengajar
 
@@ -50,23 +50,49 @@ class FragmentJadwalMengajarSeluruh : Fragment() {
         val datanip: String = SharedPrefManager.getInstance(requireContext()).data.name
         val hari: Int = SharedPrefManager.getInstance(requireContext()).datapilihjadwal.hari
         val nama_hari: String = SharedPrefManager.getInstance(requireContext()).datapilihjadwal.name_hari
+
+
+//        Toast.makeText(getActivity(), hari, Toast.LENGTH_SHORT).show()
+
         ApiService.instance.ListJadwalGuru(datanip)
         .enqueue(object : Callback<ResponseListJadwal> {
             override fun onFailure(call: Call<ResponseListJadwal>, t: Throwable) {
-                Toast.makeText(getActivity(), t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, t.message, Toast.LENGTH_LONG).show()
                 Log.e("jadwal", t.toString())
             }
 
             override fun onResponse(
-                call: Call<ResponseListJadwal>,
-                response: Response<ResponseListJadwal>
+                    call: Call<ResponseListJadwal>,
+                    response: Response<ResponseListJadwal>
             ) {
                 if (response.isSuccessful) {
-                    val listdata = response.body(
-                    )!!.data
-                    txtHari.text = response.body()!!.hari
+                    val listdata = response.body()!!.data
+                    Log.e("jadwal", listdata.toString())
 
-                    adapterJadwalMengajar.setData(listdata)
+                    ApiService.instance.jadwalGuru(datanip, hari, nama_hari)
+                            .enqueue(object : Callback<ResponseListJadwal> {
+                                override fun onFailure(call: Call<ResponseListJadwal>, t: Throwable) {
+                                    Toast.makeText(getActivity(), t.message, Toast.LENGTH_SHORT).show()
+                                    Log.e("jadwalguru", t.toString())
+                                }
+
+                                override fun onResponse(call: Call<ResponseListJadwal>, response: Response<ResponseListJadwal>) {
+                                    if (response.isSuccessful){
+                                        val listdata = response.body()!!.data
+                                        Log.e("jadwalguru","$listdata")
+                                        txtHari.text = response.body()!!.hari
+                                     adapterJadwalMengajar.setData(listdata)
+                                    }
+                                }
+
+
+                            })
+
+
+
+
+
+
                 }
             }
         })

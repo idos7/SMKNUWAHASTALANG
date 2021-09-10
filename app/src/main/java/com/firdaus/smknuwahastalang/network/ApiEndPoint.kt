@@ -13,6 +13,14 @@ interface ApiEndPoint {
     ): Call<ResponseLogin>
 
     @FormUrlEncoded
+    @POST("ubahpassword")
+    fun UbahPassword(
+            @Field("id") id: Int,
+            @Field("password_baru") passwordlama:String,
+            @Field("password_lama") passwordbaru:String
+    ): Call<ResponseUbahPassword>
+
+    @FormUrlEncoded
     @POST("password/email")
     fun forgot(
         @Field("email") email:String
@@ -107,4 +115,21 @@ interface ApiEndPoint {
         @Path("kelas")kelas: String,
         @Path("semester")semester: String
     ): Call<ResponseListDataNilai>
+    @FormUrlEncoded
+    @POST("rekapabsen/{nis}")
+    fun rekapabsen(
+            @Path("nis") nis :String,
+            @Field("bulan") bulan: String,
+    ): Call<ResponseAbsenRekap>
+
+    @FormUrlEncoded
+    @POST("pembelajaran/materi")
+    fun inputMateri(
+        @Field("nama") nama: String,
+        @Field("kelas") kelas: Int,
+        @Field("semester") semester: String,
+        @Field("file") file: String,
+        @Field("judul") judul: String,
+        ): Call<ResponsePembelajaran>
+
 }

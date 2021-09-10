@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
                 edtPassword.requestFocus()
                 return@setOnClickListener
             }
-            if(email.length <= 9 ){
+            if(email.length <= 5 ){
                 edtEmail.error = "Nip/Nis Terlalu Pendek"
                 edtEmail.requestFocus()
                 return@setOnClickListener

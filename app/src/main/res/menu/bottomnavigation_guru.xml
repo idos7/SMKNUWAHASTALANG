@@ -16,4 +16,8 @@
         android:id="@+id/Jadwal_Mengajar"
         android:title="Jadwal"
         android:icon="@drawable/ic_jadwals"/>
+    <item
+        android:id="@+id/Pembelajaran"
+        android:title="Pembelajaran"
+        android:icon="@drawable/ic_pembelajaran"/>
 </menu>

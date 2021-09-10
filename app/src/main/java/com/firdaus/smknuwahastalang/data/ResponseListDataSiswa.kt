@@ -7,5 +7,6 @@ class ResponseListDataSiswa (
     @SerializedName("pesan") val message : String,
     @SerializedName("status") val status : Boolean,
     @SerializedName("tanggal") val tanggal : String,
+    @SerializedName("kelas") val kelas : String,
     @SerializedName("data") val data : List<ListDataSiswa>
 )

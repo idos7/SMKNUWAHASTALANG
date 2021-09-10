@@ -10,6 +10,7 @@ import com.firdaus.smknuwahastalang.activity.LoginActivity
 import com.firdaus.smknuwahastalang.fragmenguru.FragmentHomeGuru
 import com.firdaus.smknuwahastalang.fragmenguru.FragmentInputAbsen
 import com.firdaus.smknuwahastalang.fragmenguru.FragmentJadwalMengajar
+import com.firdaus.smknuwahastalang.fragmenguru.PembelajaranFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.Home_Guru -> fragment = FragmentHomeGuru()
             R.id.Input_Absen -> fragment = FragmentInputAbsen()
             R.id.Jadwal_Mengajar -> fragment = FragmentJadwalMengajar()
+            R.id.Pembelajaran -> fragment = PembelajaranFragment()
         }
         return loadFragment(fragment)
     }

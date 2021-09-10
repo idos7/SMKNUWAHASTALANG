@@ -5,47 +5,44 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.firdaus.smknuwahastalang.R
-import com.firdaus.smknuwahastalang.fragment.JadwalSeluruhFragment
-import com.firdaus.smknuwahastalang.storage.SharedPrefManager
-import kotlinx.android.synthetic.main.fragment_riwayat_jadwal_siswa.*
+import kotlinx.android.synthetic.main.fragment_pembelajaran.*
 
-class RiwayatJadwalGuruFragment : Fragment() {
+class PembelajaranFragment : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_riwayat_jadwal_guru, container, false)
-        val cvSenen  = view.findViewById<CardView>(R.id.cvSenen)
-        val cvSelasa = view.findViewById<CardView>(R.id.cvSelasa)
-        val cvRabu = view.findViewById<CardView>(R.id.cvRabu)
-        val cvKamis = view.findViewById<CardView>(R.id.cvKamis)
-        val cvJumat = view.findViewById<CardView>(R.id.cvJumat)
-        val cvSabtu= view.findViewById<CardView>(R.id.cvSabtu)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_pembelajaran, container, false)
+        val cvMateri = view.findViewById<CardView>(R.id.cvMateri)
+        val cvUlangan = view.findViewById<CardView>(R.id.cvUlangan)
+        val cvTugas = view.findViewById<CardView>(R.id.cvTugas)
+        val tambahMateri = view.findViewById<ImageButton>(R.id.TambahMateri)
+        val tambahUlangan = view.findViewById<ImageButton>(R.id.TambahUlangan)
+        val tambahTugas = view.findViewById<ImageButton>(R.id.TambahTugas)
 
-        cvSenen.setOnClickListener { Senin() }
-        cvSelasa.setOnClickListener { Selasa() }
-        cvRabu.setOnClickListener { Rabu() }
-        cvKamis.setOnClickListener { Kamis() }
-        cvJumat.setOnClickListener { Jumat() }
-        cvSabtu.setOnClickListener { Sabtu() }
+        tambahMateri.setOnClickListener { Tambahmateri() }
+        tambahUlangan.setOnClickListener { Tambahulangan() }
+        tambahTugas.setOnClickListener { Tambahtugas() }
+        cvMateri.setOnClickListener { Materi() }
+        cvUlangan.setOnClickListener { Ulangan() }
+        cvTugas.setOnClickListener { Tugas() }
 
 
         return view
     }
 
-    private fun Senin() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(1,"Senin")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+    private fun Tambahtugas() {
+        val fragment: Fragment = InputTugasFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
@@ -53,9 +50,8 @@ class RiwayatJadwalGuruFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
-    private fun Selasa() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(2,"Selasa")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+    private fun Tambahulangan() {
+        val fragment: Fragment = InputUlanganFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
@@ -63,36 +59,35 @@ class RiwayatJadwalGuruFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
-    private fun Rabu() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(3,"Rabu")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+    private fun Tambahmateri() {
+        val fragment: Fragment = InputMateriFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
-    private fun Kamis() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(4,"Kamis")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+
+    private fun Tugas() {
+        val fragment: Fragment = TugasFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
-    private fun Jumat() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(5,"Jumat")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+
+    private fun Ulangan() {
+        val fragment: Fragment = UlanganFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
-    private fun Sabtu() {
-        SharedPrefManager.getInstance(requireContext()).saveDatapilihjadwal(6,"Sabtu")
-        val fragment: Fragment = FragmentJadwalMengajarSeluruh()
+
+    private fun Materi() {
+        val fragment: Fragment = MateriFragment()
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fl_containerGuru, fragment)
@@ -101,3 +96,5 @@ class RiwayatJadwalGuruFragment : Fragment() {
     }
 
 }
+
+

@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.firdaus.smknuwahastalang.R
 import com.firdaus.smknuwahastalang.activity.LoginActivity
 import com.firdaus.smknuwahastalang.activity.MainActivity
+import com.firdaus.smknuwahastalang.activity.UbahPasswordFragment
 import com.firdaus.smknuwahastalang.data.ResponseListDataGuru
 import com.firdaus.smknuwahastalang.data.ResponseProfil
 import com.firdaus.smknuwahastalang.network.ApiService
@@ -35,7 +38,10 @@ class FragmentProfil : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profil, container, false)
         val cv_Logout : CardView = view.findViewById(R.id.cv_Logout)
+        val cv_UbahPassword : CardView = view.findViewById(R.id.cv_UbahPassword)
         cv_Logout.setOnClickListener { logout() }
+        cv_UbahPassword.setOnClickListener { UbahPassword() }
+
         val daataNis : String = SharedPrefManager.getInstance(requireContext()).data.nisnip
         val nama :TextView = view.findViewById(R.id.txtNama)
         val nis :TextView = view.findViewById(R.id.txtNIS)
@@ -79,6 +85,15 @@ class FragmentProfil : Fragment() {
         val intent = Intent(getActivity(), LoginActivity::class.java)
         getActivity()?.startActivity(intent)
         getActivity()?.finish()
+
+    }
+    fun UbahPassword() {
+        val fragment: Fragment = UbahPasswordFragment()
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fl_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
 
     }
 

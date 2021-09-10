@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Detail Siswa"
+            android:text="Detail Guru"
             android:fontFamily="@font/tulisan"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
@@ -183,7 +183,7 @@
                     <TextView
                         android:layout_width="@dimen/_120sdp"
                         android:layout_height="wrap_content"
-                        android:text="No Telepon"
+                        android:text="Mata Pelajaran"
                         android:textSize="@dimen/_15sdp"
                         android:textStyle="bold"
                         android:fontFamily="@font/tulisan"
@@ -191,8 +191,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No Telepon"
-                        android:id="@+id/txtNoHp"
+                        android:text="Matematika"
+                        android:id="@+id/txtMapel"
                         android:textSize="@dimen/_15sdp"
                         android:textStyle="bold"
                         android:fontFamily="@font/tulisan"

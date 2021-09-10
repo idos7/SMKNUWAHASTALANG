@@ -12,32 +12,216 @@
         android:layout_height="match_parent"
         android:layout_marginTop="0dp"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:padding="@dimen/_20sdp">
+        android:padding="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_20sdp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_80sdp"
-        android:src="@drawable/absen_icon" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/absen_icon" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_100sdp"
-        android:text="Absensi"
-        android:fontFamily="@font/tulisan"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15sdp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_100sdp"
+            android:fontFamily="@font/tulisan"
+            android:text="Absensi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/abuabu"
-        />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:backgroundTint="@color/abuabu">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:id="@+id/txtRekapAbsensi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tulisan"
+                    android:text="Rekapan Absensi"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kiri"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    app:boxBackgroundColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/btnTampil"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtRekapAbsensi">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/SemuaBulan"
+                        android:layout_width="@dimen/_140sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#1CAE81"
+                        android:fontFamily="@font/tulisan"
+                        android:inputType="none"
+                        android:paddingVertical="@dimen/_1sdp"
+                        android:text="Semua Bulan"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnTampil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#1CAE81"
+                    android:fontFamily="@font/tulisan"
+                    android:text="Tampil"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/kiri"
+                    app:layout_constraintTop_toBottomOf="@id/txtRekapAbsensi">
+                </Button>
+                <TextView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtHadir"
+                    app:layout_constraintEnd_toStartOf="@+id/txtIzin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/kiri"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:text="Hadir "
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/tulisan"
+                    android:textSize="@dimen/_10sdp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txtIzin"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="Izin"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toStartOf="@+id/txtAlfa"
+                    app:layout_constraintStart_toEndOf="@+id/txtHadir"
+                    app:layout_constraintTop_toBottomOf="@+id/kiri" />
+
+                <TextView
+                    android:id="@+id/txtAlfa"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="Alfa"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/txtPersentase"
+                    app:layout_constraintStart_toEndOf="@+id/txtIzin"
+                    app:layout_constraintTop_toBottomOf="@+id/kiri" />
+                <TextView
+                    android:id="@+id/txtPersentase"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="Persentase"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtAlfa"
+                    app:layout_constraintTop_toBottomOf="@+id/kiri" />
+                <TextView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/valHadir"
+                    app:layout_constraintEnd_toStartOf="@+id/valIzin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHadir"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="10"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/tulisan"
+                    android:textSize="@dimen/_10sdp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/valIzin"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toStartOf="@+id/valAlfa"
+                    app:layout_constraintStart_toEndOf="@+id/valHadir"
+                    app:layout_constraintTop_toBottomOf="@+id/txtIzin" />
+
+                <TextView
+                    android:id="@+id/valAlfa"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toStartOf="@+id/valPersentase"
+                    app:layout_constraintStart_toEndOf="@+id/valIzin"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAlfa" />
+                <TextView
+                    android:id="@+id/valPersentase"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:fontFamily="@font/tulisan"
+                    android:text="70"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/valAlfa"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPersentase" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/abuabu" />
 
     </LinearLayout>
 </RelativeLayout>
